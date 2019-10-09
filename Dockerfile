@@ -9,8 +9,8 @@ VOLUME /tmp
 
 # Make port 8080 available to the world outside this container
 EXPOSE 5000
-
-COPY https://github.com/roshan02/HelloWorldKubernetes/blob/master/target/HelloWorld-0.0.1-SNAPSHOT.jar /home/HelloWorld-0.0.1-SNAPSHOT.jar
+RUN git clone https://github.com/roshan02/HelloWorldKubernetes.git
+COPY HelloWorldKubernetes/blob/master/target/HelloWorld-0.0.1-SNAPSHOT.jar /home/HelloWorld-0.0.1-SNAPSHOT.jar
 # The application's jar file
 ARG JAR_FILE=/home/HelloWorld-0.0.1-SNAPSHOT.jar
 
