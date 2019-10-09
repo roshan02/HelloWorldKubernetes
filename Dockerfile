@@ -10,12 +10,12 @@ VOLUME /tmp
 # Make port 8080 available to the world outside this container
 EXPOSE 5000
 
-#COPY https://github.com/roshan02/HelloWorldKubernetes/blob/master/target/HelloWorld-0.0.1-SNAPSHOT.jar /home/HelloWorld-0.0.1-SNAPSHOT.jar
+#COPY target/HelloWorld-0.0.1-SNAPSHOT.jar /home/HelloWorld-0.0.1-SNAPSHOT.jar
 # The application's jar file
-ARG JAR_FILE=https://github.com/roshan02/HelloWorldKubernetes/blob/master/target/HelloWorld-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=/target/HelloWorld-0.0.1-SNAPSHOT.jar
 
 # Add the application's jar to the container
-ADD ${JAR_FILE} https://github.com/roshan02/HelloWorldKubernetes/blob/master/target/HelloWorld-0.0.1-SNAPSHOT.jar
+ADD ${JAR_FILE} HelloWorld.jar
 
 # Run the jar file 
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","https://github.com/roshan02/HelloWorldKubernetes/blob/master/target/HelloWorld-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/HelloWorld.jar"]
